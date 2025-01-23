@@ -1,0 +1,145 @@
+/* General styles */
+.homeContainer {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    min-height: 100vh;
+    background: #E1F8DC; /* Light Yellow-Green background */
+    color: #353A3A; /* Darker text for readability */
+  }
+  
+  .left_side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background: #ACDDDE; /* Light Blue for left side */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #353A3A; /* Neutral dark gray for contrast */
+  }
+  
+  .right_side {
+    flex: 2;
+    background: #FEF8DD; /* Light Yellow for right side */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: calc(100vh - 40px); /* Prevent right side from overflowing */
+    color: #353A3A; /* Neutral text color */
+  }
+  
+  /* Profile photo container */
+  .left_side img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #CAF1DE; /* Light Green border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home_in {
+    display: none;
+  }
+  
+  .home_label {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #FFE7C7; /* Light Orange */
+    color: #353A3A; /* Neutral dark text */
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .home_label:hover {
+    background-color: #F7D8BA; /* Peach on hover */
+    transform: scale(1.1);
+  }
+  
+  /* Buttons */
+  .home_btn,
+  .logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 145px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+  }
+  
+  .home_btn {
+    background-color: #CAF1DE; /* Light Green button */
+    color: #353A3A; /* Neutral text for contrast */
+  }
+  
+  .home_btn:hover {
+    background-color: #E1F8DC; /* Light Yellow-Green */
+    transform: scale(1.05);
+  }
+  
+  .logout {
+    background-color: #FFE7C7; /* Light Orange */
+    color: #353A3A;
+  }
+  
+  .logout:hover {
+    background-color: #F7D8BA; /* Peach */
+    transform: scale(1.05);
+  }
+  
+  .logout p {
+    margin: 0;
+    padding-left: 10px;
+  }
+  
+  /* Bank accounts section */
+  .home_h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #353A3A;
+    text-align: center;
+  }
+  
+  .home_ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .home_ul li {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #FFE7C7; /* Light Orange border */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #FEF8DD; /* Light Yellow background */
+    color: #353A3A; /* Neutral dark text */
+    transition: transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  }
+  
+  .home_ul li:hover {
+    background-color: #E1F8DC; /* Light Yellow-Green hover */
+    transform: translateY(-4px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  

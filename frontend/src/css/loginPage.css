@@ -1,0 +1,153 @@
+/* /* body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  } */
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .e-bank-logo {
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    width: 170px; /* Adjust width as needed */
+    height: 120px;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+  }
+  
+  .login-box {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .signup-box{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  
+  .login-box {
+    background-color: #f4f4f4; /* Light gray background */
+    padding: 40px;
+  }
+  
+  .signup-box {
+    background: linear-gradient(to right, #4caf50, #2e8b57); /* Green gradient */
+    color: white;
+    text-align: center;
+  }
+  
+  .in1 {
+    width: 92%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .btn1log {
+    width: 87%;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn1log:hover {
+    background-color: #45a049;
+  }
+  
+  .signup-box button {
+    background-color: white;
+    color: #4caf50;
+  }
+  
+  .signup-box button:hover {
+    background-color: #f4f4f4;
+  }
+  
+
+
+  /* Admin Login Container */
+.admin-login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f6f9; /* Light background color */
+  }
+  
+  .admin-login-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color */
+    text-align: center;
+  }
+  
+  .btn2 {
+    padding: 15px 30px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff; /* Blue background */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn2:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn2:focus {
+    outline: none;
+  }
+  
+  .admin-login-container {
+    background-image: url('https://example.com/background.jpg'); /* Optional background image */
+    background-size: cover;
+    background-position: center;
+  }
+  
+
+  /* Admin Login Link Styling */
+.admin-login-link {
+    font-size: 1.1rem;
+    color: #007bff; /* Blue color for the link */
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .admin-login-link:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: none; /* Remove underline on hover */
+  }
+  
+  .admin-login-link:active {
+    color: #003366; /* Even darker blue when clicked */
+  }
+   

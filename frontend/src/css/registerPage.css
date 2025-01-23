@@ -1,0 +1,85 @@
+/* body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  } */
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .e-bank-logo {
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    width: 170px; /* Adjust width as needed */
+    height: 120px;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+  }
+  
+  .login-box {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .signup-box{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  
+  .login-box {
+    background-color: #f4f4f4; /* Light gray background */
+    padding: 40px;
+  }
+  
+  .signup-box {
+    background: linear-gradient(to right, #4caf50, #2e8b57); /* Green gradient */
+    color: white;
+    text-align: center;
+  }
+  
+  .in1 {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .btn1reg {
+    width: 85%;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn1:hover {
+    background-color: #45a049;
+  }
+  
+  .signup-box button {
+    background-color: white;
+    color: #4caf50;
+  }
+  
+  .signup-box button:hover {
+    background-color: #f4f4f4;
+  }
+  

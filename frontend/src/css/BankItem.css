@@ -1,0 +1,439 @@
+/* General Styling for List Item */
+.bankItem_li {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .bankItem_li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Bank Name and Details */
+  .bank_name {
+    margin-bottom: 15px;
+  }
+  
+  .bank_name span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2a73ff;
+    cursor: pointer;
+    /* text-decoration: underline; */
+    transition: color 0.3s ease;
+  }
+  
+  .bank_name span:hover {
+    color: #0046bf;
+  }
+  
+  /* Paragraphs for Account Details */
+  .bank_name .p {
+    font-size: 16px;
+    color: #555555;
+    margin: 5px 0;
+  }
+  
+  /* Buttons Section */
+  .btn-edit {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn-edit button {
+    font-size: 14px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn-edit button:hover {
+    transform: scale(1.05);
+  }
+  
+  .btn-delete {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .btn-delete:hover {
+    background-color: #c0392b;
+  }
+  
+  button {
+    background-color: #f1c40f;
+    color: black;
+  }
+  
+  button:hover {
+    background-color: #d4ac0d;
+  }
+  
+  /* Edit Form Styling */
+  .bank_input {
+    margin-top: 15px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .bank_h4 {
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 10px;
+  }
+  
+  .bank_in {
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .bank_in:focus {
+    border-color: #2a73ff;
+    outline: none;
+  }
+  
+  /* Save and Cancel Buttons */
+  .bank_save {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .bank_save button {
+    font-size: 14px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .bank_save button:hover {
+    transform: scale(1.05);
+  }
+  
+  .bank_save button:first-of-type {
+    background-color: #27ae60;
+    color: white;
+  }
+  
+  .bank_save button:first-of-type:hover {
+    background-color: #1e8449;
+  }
+  
+  .bank_save .bank_cancel {
+    background-color: #95a5a6;
+    color: white;
+  }
+  
+  .bank_save .bank_cancel:hover {
+    background-color: #7f8c8d;
+  }
+  
+
+
+
+  .d_d {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 500px;
+    max-width: 90%;
+    padding: 25px 30px;
+    background: linear-gradient(135deg, #ACDDDE, #FFE7C7); /* Gradient background */
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    color: #353A3A;
+  }
+  
+  .d_dt {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #353A3A;
+    margin-bottom: 20px;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid #CAF1DE;
+    padding-bottom: 10px;
+  }
+  
+  .d_dc {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .d_dp {
+    font-size: 18px;
+    color: #353A3A;
+    margin: 0;
+    line-height: 1.5;
+    background: rgba(255, 255, 255, 0.7); /* Subtle background for text */
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .d_dp strong {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .d_actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .d_db {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #CAF1DE, #ACDDDE); /* Smooth gradient */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+  
+  .d_db:hover {
+    background: linear-gradient(135deg, #ACDDDE, #E1F8DC);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.25);
+  }
+  
+  .d_db.cancel {
+    background: linear-gradient(135deg, #F28B82, #FFABAB); /* Red gradient for cancel */
+  }
+  
+  .d_db.cancel:hover {
+    background: linear-gradient(135deg, #FFABAB, #FFE7C7);
+  }
+  
+  .d_db:active {
+    transform: translateY(2px); /* Subtle click effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+/* Dialog Container */
+.dialog-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 20px;
+  background: rgba(0, 0, 0, 0.4); /* Dim background */
+}
+
+/* Dialog Content Wrapper */
+.div_content {
+  width: 450px; /* Adjust width */
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Dialog Title */
+.dialog-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+/* Dialog Content */
+.bank_contant {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between input fields */
+}
+
+/* Input Fields */
+.bank_in {
+  width: 90%;
+  padding: 10px 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bank_in:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+/* Dialog Actions */
+.dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Buttons */
+.dialog-button {
+  flex: 1;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dialog-button.save {
+  background: #007bff;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.dialog-button.save:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.dialog-button.cancel {
+  background: #dc3545;
+  color: #fff;
+}
+
+.dialog-button.cancel:hover {
+  background: #a71d2a;
+  transform: translateY(-2px);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* Dialog Container */
+.delete-dialog-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Dialog Content Wrapper */
+.delete-dialog-content {
+  width: 400px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Dialog Title */
+.delete-dialog-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+/* Message Text */
+.delete-dialog-message {
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
+/* Dialog Actions */
+.delete-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Buttons */
+.delete-dialog-button {
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-dialog-button.cancel {
+  background: gray;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.delete-dialog-button.cancel:hover {
+  background: darkgray;
+  transform: translateY(-2px);
+}
+
+.delete-dialog-button.delete {
+  background: red;
+  color:#fff;
+}
+
+.delete-dialog-button.delete:hover {
+  background: darkred;
+  transform: translateY(-2px);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,139 @@
+/* Main Container */
+.c_container {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  /* Left Sidebar */
+  .c_sidebar {
+    width: 40%;
+    background: #ffffff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+  
+  .c_sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #333;
+    position: absolute;
+    top: 40%;
+  }
+
+  .c_sidebar p{
+    font-size: 16px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 50%;
+    color:red
+  }
+
+  
+  .c_sidebar a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    padding: 10px 15px;
+    margin: 10px 0;
+    text-align: center;
+    width: 80%;
+    border-radius: 8px;
+    transition: background 0.3s;
+  }
+  
+  .c_sidebar a:hover {
+    background: #4facfe;
+    color: #fff;
+  }
+  
+  /* Form Section */
+  .c_form-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .c_h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  /* Form Styling */
+  .create_bank_form {
+    width: 400px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .c_in {
+    width: 90%;
+    padding: 10px 15px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  .c_in:focus {
+    border-color: #4facfe;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Button Styling */
+  .c_btn {
+    width: 98%;
+    padding: 10px 15px;
+    background: #4facfe;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .c_btn:hover {
+    background: #00f2fe;
+  }
+  
+  .c_btn:active {
+    transform: scale(0.98);
+  }
+  
+  /* Error Message */
+  .error {
+    font-size: 14px;
+    color: #e74c3c;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+
+  .e-bank-logo {
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    width: 170px; /* Adjust width as needed */
+    height: 120px;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+  }

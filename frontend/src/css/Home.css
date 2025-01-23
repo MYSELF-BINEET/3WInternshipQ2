@@ -1,0 +1,75 @@
+.homeContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .left_side {
+    flex: 1;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .right_side {
+    flex: 2;
+  }
+  
+  .user-img {
+    margin-bottom: 20px;
+  }
+  
+  .home_btn,
+  .profile_pic,
+  .upload_pic,
+  .logout {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home_btn:hover,
+  .profile_pic:hover,
+  .upload_pic:hover,
+  .logout:hover {
+    background-color: #45a049;
+  }
+  
+  .home_in {
+    margin-bottom: 15px;
+  }
+  
+  .home_h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .home_ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .home_ul li {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .home_ul li:hover {
+    background-color: #f1f1f1;
+  }
+  
