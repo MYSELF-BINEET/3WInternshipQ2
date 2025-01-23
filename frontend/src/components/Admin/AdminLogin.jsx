@@ -4,6 +4,7 @@ import "../../css/adminLoginPage.css";
 import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
+  const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -27,11 +28,12 @@ const AdminLogin = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5050/api/admin/login', {
+      const response = await fetch(`${BACKEND_URI}/api/admin/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        
         body: JSON.stringify({ username, password }),
         credentials: 'include',
       });

@@ -4,6 +4,7 @@ import '../../css/registerPage.css';
 import toast from 'react-hot-toast';
 
 const RegisterPage = () => {
+  const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +15,7 @@ const RegisterPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5050/api/v1/register', {
+      const response = await fetch(`${BACKEND_URI}/api/v1/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

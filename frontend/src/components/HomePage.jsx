@@ -9,6 +9,7 @@ import { CiLogout } from "react-icons/ci";
 import { CiBank } from "react-icons/ci";
 
 const HomePage = () => {
+  const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
   const [bankAccounts, setBankAccounts] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
   const [me, setMe] = useState(null);
@@ -21,16 +22,13 @@ const HomePage = () => {
 
   const fetchBankAccounts = async () => {
     try {
-      const response = await fetch(
-        "http://localhost:5050/api/v1/getOwnBankAcc",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        }
-      );
+      const response = await fetch(`${BACKEND_URI}/api/v1/getOwnBankAcc`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
       const data = await response.json();
       setBankAccounts(data);
     } catch (error) {
@@ -41,7 +39,7 @@ const HomePage = () => {
 
   const fetchMe = async () => {
     try {
-      const response = await fetch("http://localhost:5050/api/v1/me", {
+      const response = await fetch(`${BACKEND_URI}/api/v1/me`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -66,17 +64,14 @@ const HomePage = () => {
 
   const handleAccountUpdate = async (id, updatedAccount) => {
     try {
-      const response = await fetch(
-        `http://localhost:5050/api/v1/update/${id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(updatedAccount),
-          credentials: "include",
-        }
-      );
+      const response = await fetch(`${BACKEND_URI}/api/v1/update/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedAccount),
+        credentials: "include",
+      });
 
       if (response.ok) {
         fetchBankAccounts();
@@ -99,13 +94,10 @@ const HomePage = () => {
     // if (!confirmed) return;
 
     try {
-      const response = await fetch(
-        `http://localhost:5050/api/v1/delete/${id}`,
-        {
-          method: "DELETE",
-          credentials: "include",
-        }
-      );
+      const response = await fetch(`${BACKEND_URI}/api/v1/delete/${id}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
 
       if (response.ok) {
         fetchBankAccounts();
@@ -152,7 +144,7 @@ const HomePage = () => {
     formData.append("profilePhoto", file);
 
     try {
-      const response = await fetch("http://localhost:5050/api/v1/updatePic", {
+      const response = await fetch(`${BACKEND_URI}/api/v1/updatePic`, {
         method: "PUT",
         body: formData,
         credentials: "include",
@@ -174,7 +166,7 @@ const HomePage = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:5050/api/v1/logout", {
+      const response = await fetch(`${BACKEND_URI}/api/v1/logout`, {
         method: "GET",
         credentials: "include",
       });

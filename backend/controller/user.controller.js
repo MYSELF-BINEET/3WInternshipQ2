@@ -30,14 +30,14 @@ exports.login = async (req, res) => {
         const tokens = generateTokens(user);
 
         // Set the tokens in cookies (accessToken and refreshToken)
-        res.cookie('accessToken', tokens.accessToken, {
-            httpOnly: true,    // Prevents JavaScript from accessing the token
-            secure: process.env.NODE_ENV === 'production', // Only send cookies over HTTPS in production
+        res.cookie('accessToken', tokens.accessToken, {  
+            secure: true, 
+            sameSite: "None",// Only send cookies over HTTPS in production
             maxAge: 1 * 24 * 60 * 60 * 1000 // 15 minutes expiration for access token
         });
-        res.cookie('refreshToken', tokens.refreshToken, {
-            httpOnly: true,    // Prevents JavaScript from accessing the token
-            secure: process.env.NODE_ENV === 'production', // Only send cookies over HTTPS in production
+        res.cookie('refreshToken', tokens.refreshToken, {   
+            secure: true,
+            sameSite: "None", // Only send cookies over HTTPS in production
             maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days expiration for refresh token
         });
 

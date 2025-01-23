@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
-import '../../css/AdminDashboard.css'; // Import the CSS file
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import "../../css/AdminDashboard.css"; // Import the CSS file
+import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
+  const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
   const [accounts, setAccounts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [error, setError] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,40 +15,42 @@ const AdminDashboard = () => {
 
   const fetchBankAccounts = async () => {
     try {
-      let url = 'http://localhost:5050/api/admin/getAllBank';
+      let url = `${BACKEND_URI}/api/admin/getAllBank`;
       if (searchQuery) {
-        url = `http://localhost:5050/api/admin/search?query=${searchQuery}`;
+        url = `${BACKEND_URI}/api/admin/search?query=${searchQuery}`;
       }
 
       const response = await fetch(url, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       });
 
       if (!response.ok) {
-        throw new Error('Failed to fetch bank accounts');
+        throw new Error("Failed to fetch bank accounts");
       }
 
       const data = await response.json();
       setAccounts(Array.isArray(data.accounts) ? data.accounts : []);
     } catch (error) {
-      setError('Error fetching bank accounts: ' + error.message);
+      setError("Error fetching bank accounts: " + error.message);
     }
   };
 
   return (
     <div className="dashboard-container">
-        <img
+      <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDTYTl2yMmBxsZ0a2ijLpEyN-Px3HdVDWx2Q&s"
         alt="E-BANK Logo"
         className="e-bank-logo"
       />
-        <button className="btn3" onClick={()=>navigate("/")}>Log out</button>
-      <h1 className='adh1'>Admin DashBoard</h1>
-        <br />
-      <h2 className='adh2'>SEARCH WITHIN TABLE</h2>
+      <button className="btn3" onClick={() => navigate("/")}>
+        Log out
+      </button>
+      <h1 className="adh1">Admin DashBoard</h1>
+      <br />
+      <h2 className="adh2">SEARCH WITHIN TABLE</h2>
 
       {error && <p className="error">{error}</p>}
 

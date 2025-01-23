@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import "../../css/loginPage.css";
 
 const LoginPage = () => {
+  const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -14,27 +15,33 @@ const LoginPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5050/api/v1/login", {
+      const response = await fetch(`${BACKEND_URI}/api/v1/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
+        credentials: "include",
       });
 
       const data = await response.json();
 
-      
+      console.log(data.data);
 
       if (response.ok) {
         toast.success("Login Successfull");
         Cookies.set("accessToken", data.data.accessToken, {
           expires: 1,
-          path: "/",
+          path: "/", 
+          secure:true,
+          sameSite:"none"
+
         });
         Cookies.set("refreshToken", data.data.refreshToken, {
           expires: 7,
           path: "/",
+          secure:true,
+          sameSite:"none"
         });
         navigate("/home");
       } else {
