@@ -4,6 +4,7 @@ import "../../css/CreateBank.css";
 import toast from "react-hot-toast";
 
 const AddAccountPage = () => {
+  const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
   const [ifscCode, setIfscCode] = useState("");
   const [branchName, setBranchName] = useState("");
   const [bankName, setBankName] = useState("");
@@ -16,7 +17,7 @@ const AddAccountPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5050/api/v1/addBank", {
+      const response = await fetch(`${BACKEND_URI}/api/v1/addBank`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
