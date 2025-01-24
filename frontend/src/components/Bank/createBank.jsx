@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../css/CreateBank.css";
+import toast from "react-hot-toast";
 
 const AddAccountPage = () => {
   const [ifscCode, setIfscCode] = useState("");
@@ -29,6 +30,7 @@ const AddAccountPage = () => {
       });
       console.log(response);
       if (response.ok) {
+        toast.success("Bank Account Create Successful");
         navigate("/home"); // Redirect to home after successful account creation
       } else {
         setError("Invalid Input. Please Input Correct Format !!");

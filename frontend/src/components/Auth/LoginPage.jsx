@@ -23,6 +23,7 @@ const LoginPage = () => {
         body: JSON.stringify({ email, password }),
         credentials: "include",
       });
+      // toast.success("Please wait ...");
 
       const data = await response.json();
 
