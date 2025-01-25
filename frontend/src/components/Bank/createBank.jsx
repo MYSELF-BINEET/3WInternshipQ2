@@ -60,9 +60,10 @@ const AddAccountPage = () => {
   return (
     <div className="c_container">
          <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDTYTl2yMmBxsZ0a2ijLpEyN-Px3HdVDWx2Q&s"
+        // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDTYTl2yMmBxsZ0a2ijLpEyN-Px3HdVDWx2Q&s"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdXsVDigmVB-9l8jbey8TkBrJ6p-xzggNRXg&s"
         alt="E-BANK Logo"
-        className="e-bank-logo"
+        className="e-bank-logo4"
       />
       {/* Sidebar */}
       <div className="c_sidebar">

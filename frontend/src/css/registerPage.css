@@ -10,12 +10,13 @@
     height: 100vh;
   }
   
-  .e-bank-logo {
+  .e-bank-logo2 {
     position: absolute;
-    top: -10px;
-    left: -20px;
-    width: 170px; /* Adjust width as needed */
-    height: 120px;
+    /* position: relative; */
+    top: -30px;
+    left: -25px;
+    width: 250px; /* Adjust width as needed */
+    height: 200px;
     border-radius: 50%;
     mix-blend-mode: multiply;
   }

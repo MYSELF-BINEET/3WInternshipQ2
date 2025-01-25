@@ -124,7 +124,8 @@
     position: relative;
     top: -30px;
     /* right: 5px; */
-    width: 300px; /* Adjust width as needed */
+    left: 70px;
+    width: 350px; /* Adjust width as needed */
     height: 300px;
     border-radius: 50%;
     mix-blend-mode: multiply;

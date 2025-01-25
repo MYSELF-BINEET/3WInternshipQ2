@@ -24,7 +24,7 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 app.use(cors({
-    origin:["https://bankmegathreewsols.netlify.app"],
+    origin:["http://localhost:5173"],
     methods:'GET,POST,PUT,DELETE',
     credentials: true,
 }));

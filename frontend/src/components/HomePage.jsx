@@ -21,21 +21,26 @@ const HomePage = () => {
   }, []);
 
   const fetchBankAccounts = async () => {
-    try {
-      const response = await fetch(`${BACKEND_URI}/api/v1/getOwnBankAcc`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
-      const data = await response.json();
-      setBankAccounts(data);
-    } catch (error) {
-      console.error("Error fetching bank accounts:", error);
-      alert("An error occurred while fetching bank accounts.");
-    }
+    toast.promise(
+      (async () => {
+        const response = await fetch(`${BACKEND_URI}/api/v1/getOwnBankAcc`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        });
+        const data = await response.json();
+        setBankAccounts(data);
+      })(),
+      {
+        loading: "Fetching bank accounts...",
+        success: "Bank accounts fetched successfully!",
+        error: "Failed to fetch bank accounts.",
+      }
+    );
   };
+  
 
   const fetchMe = async () => {
     try {

@@ -71,9 +71,10 @@ const LoginPage = () => {
     <div className="container">
       {/* Replace the heading with an image */}
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDTYTl2yMmBxsZ0a2ijLpEyN-Px3HdVDWx2Q&s"
+        // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDTYTl2yMmBxsZ0a2ijLpEyN-Px3HdVDWx2Q&s"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdXsVDigmVB-9l8jbey8TkBrJ6p-xzggNRXg&s"
         alt="E-BANK Logo"
-        className="e-bank-logo"
+        className="e-bank-logo1"
       />
 
       <div className="login-box">
