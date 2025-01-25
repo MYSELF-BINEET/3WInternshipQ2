@@ -100,12 +100,12 @@ To test the system, use the following hardcoded credentials:
    - Start the backend server:
      ```bash
      cd backend
-     npm start
+     npm run dev
      ```
    - Start the frontend server:
      ```bash
      cd ../frontend
-     npm start
+     npm run dev
      ```
 
 5. **Access the Application**:
@@ -123,7 +123,8 @@ To test the system, use the following hardcoded credentials:
 | POST   | /api/v1/register | Register a new user.               |
 | POST   | /api/v1/login    | Log in as an existing user.         |
 | POST   | /api/v1/addBank          | Add a new bank account.             |
-| GET    | /api/v1/getOwnBankAcc          | View all bank accounts for the user.|
+| GET   | /api/v1/me          | Fetch login user details.             |
+| GET    | /api/v1/getOwnBankAcc          | View all bank accounts for the logged in user.|
 | PUT    | /api/v1/update/:id      | Edit bank account details.          |
 | DELETE | /api/v1/delete/:id      | Remove a specific bank account.     |
 
