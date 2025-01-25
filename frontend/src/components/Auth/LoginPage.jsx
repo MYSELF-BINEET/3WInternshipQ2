@@ -13,8 +13,9 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
+  
+    // Define the login logic as a function
+    const loginRequest = async () => {
       const response = await fetch(`${BACKEND_URI}/api/v1/login`, {
         method: "POST",
         headers: {
@@ -23,34 +24,47 @@ const LoginPage = () => {
         body: JSON.stringify({ email, password }),
         credentials: "include",
       });
-      // toast.success("Please wait ...");
-
+  
       const data = await response.json();
-
-
-      if (response.ok) {
-        toast.success("Login Successfull");
-        Cookies.set("accessToken", data.data.accessToken, {
-          expires: 1,
-          path: "/", 
-          secure:true,
-          sameSite:"none"
-
-        });
-        Cookies.set("refreshToken", data.data.refreshToken, {
-          expires: 7,
-          path: "/",
-          secure:true,
-          sameSite:"none"
-        });
-        navigate("/home");
-      } else {
-        setError(data.message);
+  
+      if (!response.ok) {
+        throw new Error(data.message || "Login failed");
       }
-    } catch (error) {
-      console.error("Error:", error);
-      setError("An error occurred. Please try again.");
-    }
+  
+      // Save tokens if login is successful
+      Cookies.set("accessToken", data.data.accessToken, {
+        expires: 1,
+        path: "/",
+        secure: true,
+        sameSite: "none",
+      });
+      Cookies.set("refreshToken", data.data.refreshToken, {
+        expires: 7,
+        path: "/",
+        secure: true,
+        sameSite: "none",
+      });
+  
+      return data;
+    };
+  
+    // Use toast.promise to manage the promise state
+    toast
+      .promise(
+        loginRequest(),
+        {
+          loading: "Logging in... Please Wait Some time ....",
+          success: "Login successful! ",
+          error: "Login failed. Please try again.",
+        }
+      )
+      .then(() => {
+        navigate("/home");
+      })
+      .catch((error) => {
+        console.error("Login error:", error);
+        setError(error.message);
+      });
   };
 
   return (

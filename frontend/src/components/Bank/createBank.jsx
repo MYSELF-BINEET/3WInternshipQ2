@@ -15,8 +15,9 @@ const AddAccountPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
+  
+    // Define the bank account creation logic
+    const addBankAccount = async () => {
       const response = await fetch(`${BACKEND_URI}/api/v1/addBank`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -29,17 +30,31 @@ const AddAccountPage = () => {
         }),
         credentials: "include",
       });
-      console.log(response);
-      if (response.ok) {
-        toast.success("Bank Account Create Successful");
-        navigate("/home"); // Redirect to home after successful account creation
-      } else {
-        setError("Invalid Input. Please Input Correct Format !!");
+  
+      if (!response.ok) {
+        throw new Error("Invalid input. Please input correct format!");
       }
-    } catch (error) {
-      console.error("Error:", error);
-      setError("An error occurred. Please try again.");
-    }
+  
+      return response;
+    };
+  
+    // Use toast.promise to handle the process
+    toast
+      .promise(
+        addBankAccount(),
+        {
+          loading: "Adding Bank Account...",
+          success: "Bank account created successfully! ",
+          error: "Invalid input. Please try again.",
+        }
+      )
+      .then(() => {
+        navigate("/home"); // Redirect to home after successful account creation
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setError(error.message);
+      });
   };
 
   return (

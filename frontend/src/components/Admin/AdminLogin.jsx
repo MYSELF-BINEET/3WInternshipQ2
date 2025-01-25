@@ -21,34 +21,48 @@ const AdminLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (!username || !password) {
-      setErrorMessage('Please enter both username and password.');
+      setErrorMessage("Please enter both username and password.");
       return;
     }
-
-    try {
+  
+    // Define the login request function
+    const loginRequest = async () => {
       const response = await fetch(`${BACKEND_URI}/api/admin/login`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        
         body: JSON.stringify({ username, password }),
-        credentials: 'include',
+        credentials: "include",
       });
-
-      if (response.ok) {
-        toast.success("Login Successful");
-        navigate("/admin-dashboard");
-      } else {
+  
+      if (!response.ok) {
         const data = await response.json();
-        setErrorMessage(data.message || 'Login failed. Please check your credentials.');
+        throw new Error(data.message || "Login failed. Please check your credentials.");
       }
-    } catch (error) {
-      setErrorMessage('An error occurred while logging in.');
-      console.error('Login error:', error);
-    }
+  
+      return response;
+    };
+  
+    // Use toast.promise to handle the login flow
+    toast
+      .promise(
+        loginRequest(),
+        {
+          loading: "Logging in...",
+          success: "Login successful! Redirecting to dashboard...",
+          error: "Login failed. Please try again.",
+        }
+      )
+      .then(() => {
+        navigate("/admin-dashboard"); // Redirect to admin dashboard after successful login
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+        console.error("Login error:", error);
+      });
   };
 
   return (

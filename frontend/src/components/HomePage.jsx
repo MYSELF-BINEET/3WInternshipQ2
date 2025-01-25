@@ -63,7 +63,8 @@ const HomePage = () => {
   };
 
   const handleAccountUpdate = async (id, updatedAccount) => {
-    try {
+    // Define the account update logic
+    const updateAccount = async () => {
       const response = await fetch(`${BACKEND_URI}/api/v1/update/${id}`, {
         method: "PUT",
         headers: {
@@ -72,62 +73,74 @@ const HomePage = () => {
         body: JSON.stringify(updatedAccount),
         credentials: "include",
       });
-
-      if (response.ok) {
-        fetchBankAccounts();
-        // alert('Account updated successfully');
-        toast.success("Account Update Successfull");
-      } else {
+  
+      if (!response.ok) {
         const errorData = await response.json();
-        alert(`Error updating account: ${errorData.message}`);
+        throw new Error(errorData.message || "Error updating account");
       }
-    } catch (error) {
-      console.error("Error updating account:", error);
-      alert("An error occurred while updating the account.");
-    }
+  
+      return response;
+    };
+  
+    // Use toast.promise to provide feedback
+    toast
+      .promise(
+        updateAccount(),
+        {
+          loading: "Updating account...",
+          success: "Account updated successfully!",
+          error: "Failed to update account.",
+        }
+      )
+      .then(() => {
+        fetchBankAccounts(); // Refresh the accounts after successful update
+      })
+      .catch((error) => {
+        console.error("Error updating account:", error);
+      });
   };
-
+  
   const handleAccountDelete = async (id) => {
-    // const confirmed = window.confirm(
-    //   "Are you sure you want to delete this account?"
-    // );
-    // if (!confirmed) return;
-
-    try {
+    // Define the account deletion logic
+    const deleteAccount = async () => {
       const response = await fetch(`${BACKEND_URI}/api/v1/delete/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
-
-      if (response.ok) {
-        fetchBankAccounts();
-        // alert('Account deleted successfully');
-        toast.success("Account Delete Successful");
-      } else {
+  
+      if (!response.ok) {
         const errorData = await response.json();
-        alert(`Error deleting account: ${errorData.message}`);
+        throw new Error(errorData.message || "Error deleting account");
       }
-    } catch (error) {
-      console.error("Error deleting account:", error);
-      alert("An error occurred while deleting the account.");
-    }
+  
+      return response;
+    };
+  
+    // Use toast.promise to provide feedback
+    toast
+      .promise(
+        deleteAccount(),
+        {
+          loading: "Deleting account...",
+          success: "Account deleted successfully!",
+          error: "Failed to delete account.",
+        }
+      )
+      .then(() => {
+        fetchBankAccounts(); // Refresh the accounts after successful deletion
+      })
+      .catch((error) => {
+        console.error("Error deleting account:", error);
+      });
   };
+  
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
     setSelectedFile(file);
     if (file) {
       setSelectedFile(file);
       console.log(selectedFile);
-      // Update the selected file state
-      // toast.promise(
-      //   await handleUploadProfilePic(file),
-      //    {
-      //      loading: 'Saving...',
-      //      success: <b>Settings saved!</b>,
-      //      error: <b>Could not save.</b>,
-      //    }
-      //  );
-      toast.success("Please Wait file will be update");
+      // toast.success("Please Wait file will be update");
       await handleUploadProfilePic(file);
     } else {
       toast.error("No file selected.");
@@ -136,32 +149,46 @@ const HomePage = () => {
 
   const handleUploadProfilePic = async (file) => {
     if (!file) {
-      toast.error("Please Select a Photo!");
+      toast.error("Please select a photo!");
       return;
     }
-
+  
     const formData = new FormData();
     formData.append("profilePhoto", file);
-
-    try {
+  
+    // Define the profile picture upload logic
+    const uploadProfilePicture = async () => {
       const response = await fetch(`${BACKEND_URI}/api/v1/updatePic`, {
         method: "PUT",
         body: formData,
         credentials: "include",
       });
-
-      if (response.ok) {
-        fetchMe();
-        toast.success("Profile Picture Upload Successfully");
-        setSelectedFile(null); // Clear the file after upload
-      } else {
+  
+      if (!response.ok) {
         const errorData = await response.json();
-        alert(`Error uploading profile picture: ${errorData.message}`);
+        throw new Error(errorData.message || "Error uploading profile picture");
       }
-    } catch (error) {
-      console.error("Error uploading profile picture:", error);
-      alert("An error occurred while uploading the profile picture.");
-    }
+  
+      return response;
+    };
+  
+    // Use toast.promise for handling the upload process
+    toast
+      .promise(
+        uploadProfilePicture(),
+        {
+          loading: "Uploading profile picture...",
+          success: "Profile picture uploaded successfully!",
+          error: "Failed to upload profile picture.",
+        }
+      )
+      .then(() => {
+        fetchMe(); // Refresh the user profile after successful upload
+        setSelectedFile(null); // Clear the file after upload
+      })
+      .catch((error) => {
+        console.error("Error uploading profile picture:", error);
+      });
   };
 
   const handleLogout = async () => {

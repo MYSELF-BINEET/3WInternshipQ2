@@ -13,28 +13,43 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
+  
+    // Define the registration logic as a function
+    const registerUser = async () => {
       const response = await fetch(`${BACKEND_URI}/api/v1/register`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ username, email, password }),
       });
-
+  
       const data = await response.json();
-
-      if (response.ok) {
-        toast.success('Registration successful!');
-        navigate('/'); // Redirect to login page after successful registration
-      } else {
-        setError(data.message); // Show error message from API
+  
+      if (!response.ok) {
+        throw new Error(data.message || "Registration failed");
       }
-    } catch (error) {
-      console.error('Error:', error);
-      setError('An error occurred. Please try again.');
-    }
+  
+      return data;
+    };
+  
+    // Use toast.promise to handle the promise state
+    toast
+      .promise(
+        registerUser(),
+        {
+          loading: "Registering...",
+          success: "Registration successful! Redirecting to login .....",
+          error: "Registration failed. Please try again.",
+        }
+      )
+      .then(() => {
+        navigate("/"); // Redirect to login page after successful registration
+      })
+      .catch((error) => {
+        console.error("Registration error:", error);
+        setError(error.message);
+      });
   };
 
   return (
